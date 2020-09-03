@@ -1,4 +1,4 @@
-"""Support for LIRC devices."""
+"""Support for CIR devices."""
 # pylint: disable=no-member, import-error
 import logging
 import threading
@@ -18,7 +18,7 @@ DOMAIN = "cir"
 EVENT_IR_COMMAND_RECEIVED = "ir_command_received"
 
 ICON = "mdi:remote"
-DEVPATH = '/dev/input/event12'
+DEVPATH = '/dev/input/event12'  # <= change this
 
 CONFIG_SCHEMA = vol.Schema({DOMAIN: vol.Schema({})}, extra=vol.ALLOW_EXTRA)
 
