@@ -28,3 +28,18 @@ sudo ir-keytable -c -p nec -w /etc/rc_keymaps/mx3.toml
 sudo ir-keytable -c -p nec -w /lib/udev/rc_keymaps/dvbsky.toml  
 
 Change "input12" in the code to the correct input device. To find the input device, run "ir-keytable".
+
+Automation example:
+```
+- id:  tvir
+  alias: tv_ir
+  trigger:
+    platform: event
+    event_type: ir_command_received
+    event_data:
+      key_code: 398
+      key_action: 1
+  action:
+  - service: light.turn_on
+    entity_id: light.osram_cla60_rgbw
+```
