@@ -66,8 +66,7 @@ class CirInterface(threading.Thread):
             if event != None:
                 if event.type==evdev.ecodes.EV_KEY:   # KeyEvent
                     _LOGGER.debug("Keycode: %i value: %i",event.code,event.value)
-                    if event.value==1:  # key-down
-                        self.hass.bus.fire(EVENT_IR_COMMAND_RECEIVED, {KEY_CODE: event.code,KEY_ACTION: event.value})
+                    self.hass.bus.fire(EVENT_IR_COMMAND_RECEIVED, {KEY_CODE: event.code,KEY_ACTION: event.value})
             else:
                 time.sleep(0.2)
         _LOGGER.debug("CIR interface thread stopped")
