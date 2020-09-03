@@ -1,14 +1,12 @@
 # Home Assistant Custom Component for processing IR Events
+This custom component receives IR events and fires HA events. It does not use lirc/lircd.
 
 sudo apt install python3-evdev
 
 sudo adduser _ha_user_ input         `-> add the current home assistant user to the input group. replace ha_user with your user!`
 
-sudo ir-keytable -c -p nec -w /etc/rc_keymaps/mx3.toml
-  or
-sudo ir-keytable -c -p nec -w /lib/udev/rc_keymaps/dvbsky.toml  
 
-Example of mx3.toml:
+Create /etc/rc_keymaps/mx3.toml:
 ```
 [[protocols]]
 name = "mx3 gyro mouse"
@@ -24,3 +22,9 @@ Add the following line to /etc/rc_maps.cfg :
 ```
 *       *                        mx3.toml
 ```
+
+sudo ir-keytable -c -p nec -w /etc/rc_keymaps/mx3.toml
+  or
+sudo ir-keytable -c -p nec -w /lib/udev/rc_keymaps/dvbsky.toml  
+
+Change "input12" in the code to the correct input device. To find the input device, run "ir-keytable".
