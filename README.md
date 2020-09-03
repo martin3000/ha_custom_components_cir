@@ -2,7 +2,7 @@
 
 sudo apt install python3-evdev
 
-sudo adduser _ha_user_ input         -> add the current home assistant user to the input group. replace ha_user with your user!
+sudo adduser _ha_user_ input         `-> add the current home assistant user to the input group. replace ha_user with your user!`
 
 sudo ir-keytable -c -p nec -w /etc/rc_keymaps/mx3.toml
 
