@@ -1,0 +1,7 @@
+{
+  "domain": "cir",
+  "name": "cir",
+  "documentation": "  ",
+  "requirements": [],
+  "codeowners": ["jms"]
+}
